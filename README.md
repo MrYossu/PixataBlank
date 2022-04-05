@@ -24,15 +24,24 @@ If you want to use this code as a starting point for your new project, you'll ne
 4. Rename the `PixataBlank.Web` folder to match the new project's name
 5. Do a find-and-replace in all files of `PixataBlank` to whatever you want to call your new project. You can do this from Visual Studio, using `Edit -> Find & Replace -> Replace in Files` (or Ctrl-Shft-H for those who like keyboard shortcuts)
 6. Open `appSettings.json` and change the email settings
-7. Open `Program.cs` and change the details for the initial admin user. See the two TODO comments there
+7. Open `Program.cs` and change the details for the initial admin user and the initial regular user (if you want to keep that). See the TODO comments there
 8. Add a logo for your app. The project is currently missing one, but if you add an image called `logo.png` to the `wwwwroot/images` folder, it should work fine. At the moment, this image is referenced from both `Areas/Identity/Pages/Shared/_IdentityLayout.cshtml` and `Areas/General/Shared/NavMenu.razor`, but I hope to fix that at some point
 9. In the Package Manager Console (inside VS), type `update-database`
 
 That should be enough to give you a working app!
 
-If you don't log in, and click the Authed link in the side bar, you'll get sent to the log in page. If you are logged in, you'll see the (somewhat empty) page.
-
 If you find any problems with this, or have any suggestions for improvements, please open a new issue.
+
+### Authentication and authorisation
+
+- If you are not logged in, and click either the `Authed` or `Admin only` links in the sidebar, you should get sent to the log in page. 
+- If you are logged in, but as a regular user, then you will be able to access `Authed`, but will be shown a message when you try and access `Admin only`.
+
+- If you are logged in as an admin user, you should be able to access both pages.
+
+`NavMenu.razor` also includes two links that only show up when you are logged in, one when logged in as anyone, and another that only shows when logged in as admin. Neither of these have an `href` attribute, so you can't click them, but they are there in case you need them.
+
+And no, the nav menu icons don't have any significance! I just picked random ones from the `IconsHelper` class.
 
 ### Note
 
