@@ -51,6 +51,8 @@ And before you ask, yes this would be better if it were turned into a project te
 
 This list is by no means exhaustive, but gives you an idea of what I intend to add, and what potential issues I need to clarify...
 
+- Add the Pixata email service
+- Add Identity pages for register and forgotten email, both of which can use the Pixata email service
 - Change the way the layout is specified for Identity pages, to reduce the amount of duplicate code between the two areas
 - Same goes for the Guids in the solution file. Is it a problem if multiple solutions use the same Guids?
 

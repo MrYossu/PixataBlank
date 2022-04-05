@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Pixata.Email;
 using PixataBlank.Web.Areas.Identity;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -30,6 +31,10 @@ builder.Services.AddServerSideBlazor().AddCircuitOptions(options => {
 });
 builder.Services.AddTelerikBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<User>>();
+
+SmtpSettings smtpSettings = builder.Configuration.GetSection("Smtp").Get<SmtpSettings>();
+builder.Services.AddSingleton(smtpSettings);
+builder.Services.AddTransient<PixataEmailService>();
 
 WebApplication app = builder.Build();
 
