@@ -1,0 +1,11 @@
+﻿<AuthorizeView>
+  <Authorized>
+    <a href="/Profile">@context.User.Identity?.Name</a>
+    <form method="post" action="@RouteHelper.Logout">
+      <button type="submit" class="nav-link btn btn-link">Log out</button>
+    </form>
+  </Authorized>
+  <NotAuthorized>
+    <a href="@RouteHelper.Login">Log in</a>
+  </NotAuthorized>
+</AuthorizeView>

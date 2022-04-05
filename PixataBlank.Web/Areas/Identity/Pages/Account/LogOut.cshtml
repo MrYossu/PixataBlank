@@ -1,0 +1,21 @@
+﻿@page "/Logout"
+@attribute [IgnoreAntiforgeryToken]
+@inject SignInManager<User> _signInManager
+
+@functions {
+
+  public async Task<IActionResult> OnGet() {
+    if (_signInManager.IsSignedIn(User)) {
+      await _signInManager.SignOutAsync();
+    }
+    return Redirect("~/");
+  }
+
+  public async Task<IActionResult> OnPost() {
+    if (_signInManager.IsSignedIn(User)) {
+      await _signInManager.SignOutAsync();
+    }
+    return Redirect("~/");
+  }
+
+}

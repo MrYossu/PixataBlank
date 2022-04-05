@@ -1,0 +1,16 @@
+﻿@page "/Authed"
+@attribute [Authorize]
+
+<h1>Authed</h1>
+
+<p>You should only be able to reach this page if you are logged in</p>
+
+<AuthorizeView>
+  <Authorized>
+    <p>Hello, @context.User.Identity.Name</p>
+    <p>You can only see this content if you're authorised.</p>
+  </Authorized>
+  <NotAuthorized>
+    <p>You're not signed in.</p>
+  </NotAuthorized>
+</AuthorizeView>
