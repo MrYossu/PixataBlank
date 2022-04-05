@@ -24,7 +24,7 @@ If you want to use this code as a starting point for your new project, you'll ne
 5. Do a find-and-replace in all files of `PixataBlank` to whatever you want to call your new project. You can do this from Visual Studio, using `Edit -> Find & Replace -> Replace in Files` (or Ctrl-Shft-H for those who like keyboard shortcuts)
 6. Open `appSettings.json` and change the email settings
 7. Open `Program.cs` and change the details for the initial admin user. See the two TODO comments there
-8. Add a logo for your app. The project is currently missing one, but if you add an image called `logo.png` to the `wwwwroot/images` flder, it should work fine. At the moment, this image is referenced from both `Areas/Identity/Pages/Shared/_IdentityLayout.cshtml` and `Areas/General/Shared/NavMenu.razor`, but I hope to fix that at some point
+8. Add a logo for your app. The project is currently missing one, but if you add an image called `logo.png` to the `wwwwroot/images` folder, it should work fine. At the moment, this image is referenced from both `Areas/Identity/Pages/Shared/_IdentityLayout.cshtml` and `Areas/General/Shared/NavMenu.razor`, but I hope to fix that at some point
 
 That should be enough to give you a working app!
 
@@ -44,4 +44,5 @@ This list is by no means exhaustive, but gives you an idea of what I intend to a
 The project is set up to work the way I normally code, which is very likely to be different from the way you code. Feel free to hack it to your heart's content, but here are some tips as to what the project contains...
 
 - I make use of several of [my own Nuget packages](https://www.nuget.org/packages?q=Pixata).
-- The project currently makes use of the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui). I need to check if this will cause a problem for people who don't ahve a subscription for them.
+- I include a reference to [LanguageExt](https://github.com/louthy/language-ext/), as I can't imagine coding without it! Also, some of my own packages depend on it, and using them requires you to use it.
+- The project currently makes use of the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui). I need to check if this will cause a problem for people who don't have a subscription for them.
