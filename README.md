@@ -28,6 +28,8 @@ If you want to use this code as a starting point for your new project, you'll ne
 
 That should be enough to give you a working app!
 
+If you don't log in, and click the Authed link in the side bar, you'll get sent to the log in page. If you are logged in, you'll see the (somewhat empty) page.
+
 If you find any problems with this, or have any suggestions for improvements, please open a new issue.
 
 ## Things to do/investigate
