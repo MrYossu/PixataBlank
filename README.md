@@ -34,18 +34,22 @@ If you don't log in, and click the Authed link in the side bar, you'll get sent 
 
 If you find any problems with this, or have any suggestions for improvements, please open a new issue.
 
+### Note
+
+And before you ask, yes this would be better if it were turned into a project template. However, I haven't managed to get this to work properly, so for the moment, this repository is what I'm using. Even when I do get the template creation working, I'll still keep this repository, to keep track of the code for the template.
+
 ## Things to do/investigate
 
 This list is by no means exhaustive, but gives you an idea of what I intend to add, and what potential issues I need to clarify...
 
 - Change the way the layout is specified for Identity pages, to reduce the amount of duplicate code between the two areas
-- I need to check if there will be any conflicts with ports. As I'm cloning an existing repository, does that mean that each one will use the same port? I don't think so, but haven't played enough to check
 - Same goes for the Guids in the solution file. Is it a problem if multiple solutions use the same Guids?
 
-## Dependencies
+## Dependencies and other notes
 
 The project is set up to work the way I normally code, which is very likely to be different from the way you code. Feel free to hack it to your heart's content, but here are some tips as to what the project contains...
 
 - I make use of several of [my own Nuget packages](https://www.nuget.org/packages?q=Pixata).
 - I include a reference to [LanguageExt](https://github.com/louthy/language-ext/), as I can't imagine coding without it! Also, some of my own packages depend on it, and using them requires you to use it.
 - The project currently makes use of the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui). As far as I know, if you don't have a licence for this, you won't be able to use this project as it stands. However, you could undo the steps required to [add the Telerik Blazor components to an existing project](https://docs.telerik.com/blazor-ui/getting-started/server-blazor#step-2---add-the-telerik-blazor-components-to-an-existing-project), and revert it to a non-Telerik app.
+- The `launchSettings.json` file has been excluded from source control. This means that when you get a copy of the repository, VS will create a new `launchSettings.json` file when you first run, which will ensure that you get a new port number. This avoids every project you base on this code will use a different port.
