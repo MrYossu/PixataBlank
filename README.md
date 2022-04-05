@@ -10,6 +10,7 @@ In order to try and cut down on the amount of time this takes, I started this re
 - Register new user configured - pending
 - Forgotten email - pending
 - Email configured and ready to use - pending
+- Blazor reconnection is configured, so if the client loses the connection, it will try and reconnect, without the user having to refresh the page
 
 Any points marked "pending" are not yet complete, but hopefully will be as and when I have time.
 
@@ -39,7 +40,6 @@ This list is by no means exhaustive, but gives you an idea of what I intend to a
 - Change the way the layout is specified for Identity pages, to reduce the amount of duplicate code between the two areas
 - I need to check if there will be any conflicts with ports. As I'm cloning an existing repository, does that mean that each one will use the same port? I don't think so, but haven't played enough to check
 - Same goes for the Guids in the solution file. Is it a problem if multiple solutions use the same Guids?
-- Need to check th elegal and technical issues with the project depending on Telerik (see lower down)
 
 ## Dependencies
 
@@ -47,4 +47,4 @@ The project is set up to work the way I normally code, which is very likely to b
 
 - I make use of several of [my own Nuget packages](https://www.nuget.org/packages?q=Pixata).
 - I include a reference to [LanguageExt](https://github.com/louthy/language-ext/), as I can't imagine coding without it! Also, some of my own packages depend on it, and using them requires you to use it.
-- The project currently makes use of the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui). I need to check if this will cause a problem for people who don't have a subscription for them.
+- The project currently makes use of the [Telerik UI for Blazor components](https://www.telerik.com/blazor-ui). As far as I know, if you don't have a licence for this, you won't be able to use this project as it stands. However, you could undo the steps required to [add the Telerik Blazor components to an existing project](https://docs.telerik.com/blazor-ui/getting-started/server-blazor#step-2---add-the-telerik-blazor-components-to-an-existing-project).
