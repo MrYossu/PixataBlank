@@ -1,0 +1,5 @@
+﻿@page "/AdminOnly"
+@attribute [Authorize(Roles = Roles.Admin)]
+
+<h1>Admin only</h1>
+<p>If you aren't a logged-in admin user, you shouldn't be able to see this page.</p>

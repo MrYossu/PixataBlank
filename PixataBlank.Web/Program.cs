@@ -58,14 +58,22 @@ RoleManager<IdentityRole> roleManager = serviceScope.ServiceProvider.GetService<
 await CreateRoles(roleManager!);
 UserManager<User> userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<User>>();
 // TODO - Change the details below to be for the initial admin user
-User user = new() {
-  UserName = "me@domain.com",
-  Email = "me@domain.com",
+User admin = new() {
+  UserName = "admin@domain.com",
+  Email = "admin@domain.com",
   FirstName = "Avrohom Yisroel",
   Surname = "Silver"
 };
 // TODO - Change this to your admin user's initial password
-await ConfigureSiteAdmin(user, "TJK_oJd*pKYZq9g7G8VY");
+await ConfigureSiteAdmin(admin, "admin");
+// TODO AYS - If you want to add a regular (ie non-admin) user here, change the details below. Otherwise just delete this bit
+User regular = new() {
+  UserName = "user@domain.com",
+  Email = "user@domain.com",
+  FirstName = "Billy",
+  Surname = "Spriggs"
+};
+await ConfigureUser(regular, "regular");
 
 app.Run();
 
@@ -81,7 +89,7 @@ static async Task CreateRoles(RoleManager<IdentityRole> roleManager) {
   }
 }
 
-async Task ConfigureSiteAdmin(User user, string password) {
+async Task ConfigureUser(User user, string password) {
   if (await userManager.FindByEmailAsync(user.Email) != null) {
     return;
   }
@@ -90,6 +98,10 @@ async Task ConfigureSiteAdmin(User user, string password) {
   }
   user.EmailConfirmed = true;
   await userManager.CreateAsync(user, password);
-  await userManager.AddToRoleAsync(user, Roles.Admin);
   await userManager.AddToRoleAsync(user, Roles.User);
+}
+
+async Task ConfigureSiteAdmin(User user, string password) {
+  await ConfigureUser(user, password);
+  await userManager.AddToRoleAsync(user, Roles.Admin);
 }

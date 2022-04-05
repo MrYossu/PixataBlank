@@ -26,6 +26,7 @@ If you want to use this code as a starting point for your new project, you'll ne
 6. Open `appSettings.json` and change the email settings
 7. Open `Program.cs` and change the details for the initial admin user. See the two TODO comments there
 8. Add a logo for your app. The project is currently missing one, but if you add an image called `logo.png` to the `wwwwroot/images` folder, it should work fine. At the moment, this image is referenced from both `Areas/Identity/Pages/Shared/_IdentityLayout.cshtml` and `Areas/General/Shared/NavMenu.razor`, but I hope to fix that at some point
+9. In the Package Manager Console (inside VS), type `update-database`
 
 That should be enough to give you a working app!
 
