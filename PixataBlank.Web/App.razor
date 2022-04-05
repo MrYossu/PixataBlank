@@ -3,7 +3,12 @@
     <Found Context="routeData">
       <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
         <NotAuthorized>
-          <RedirectToLogin />
+          @if (!context.User.Identity.IsAuthenticated) {
+            <RedirectToLogin />
+          } else {
+            <h1>Access denied</h1>
+            <p>Sorry, you do not have permission to access this page. If you believe you should have access, please contact the site owner.</p>
+          }
         </NotAuthorized>
       </AuthorizeRouteView>
     </Found>
